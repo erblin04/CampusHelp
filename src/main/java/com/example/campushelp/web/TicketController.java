@@ -6,6 +6,10 @@ import com.example.campushelp.web.dto.TicketResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import com.example.campushelp.domain.enums.TicketPriority;
+import com.example.campushelp.domain.enums.TicketStatus;
+import org.springframework.data.domain.Page;
+
 
 import java.util.List;
 
@@ -25,10 +29,26 @@ public class TicketController {
         return ticketService.create(req);
     }
 
+//    @GetMapping
+//    public List<TicketResponse> list() {
+//        return ticketService.getAll();
+//    }
+
     @GetMapping
-    public List<TicketResponse> list() {
-        return ticketService.getAll();
+    public org.springframework.data.domain.Page<TicketResponse> list(
+            @RequestParam(required = false) com.example.campushelp.domain.enums.TicketStatus status,
+            @RequestParam(required = false) com.example.campushelp.domain.enums.TicketPriority priority,
+            @RequestParam(required = false) String category,
+            @RequestParam(required = false) String q,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "20") int size,
+            @RequestParam(defaultValue = "createdAt") String sortBy,
+            @RequestParam(defaultValue = "desc") String direction
+    ) {
+        return ticketService.search(status, priority, category, q, page, size, sortBy, direction);
     }
+
+
 
     @GetMapping("/{id}")
     public TicketResponse getById(@PathVariable Long id) {
