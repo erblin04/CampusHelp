@@ -84,7 +84,7 @@ public class TicketService {
             String sortBy,
             String direction
     ) {
-        // allow only safe sort fields
+
         String safeSortBy = switch (sortBy == null ? "" : sortBy) {
             case "createdAt" -> "createdAt";
             case "updatedAt" -> "updatedAt";
