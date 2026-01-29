@@ -2,14 +2,14 @@ package com.example.campushelp.service;
 
 import com.example.campushelp.domain.Ticket;
 import com.example.campushelp.domain.User;
-import com.example.campushelp.repositoy.TicketRepository;
+import com.example.campushelp.repository.TicketRepository;
 import com.example.campushelp.web.dto.CreateTicketRequest;
 import com.example.campushelp.web.dto.TicketResponse;
 import com.example.campushelp.web.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 import com.example.campushelp.domain.enums.TicketPriority;
 import com.example.campushelp.domain.enums.TicketStatus;
-import com.example.campushelp.repositoy.TicketSpecifications;
+import com.example.campushelp.repository.TicketSpecifications;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

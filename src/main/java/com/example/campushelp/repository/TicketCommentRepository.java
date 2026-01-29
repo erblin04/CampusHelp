@@ -1,4 +1,4 @@
-package com.example.campushelp.repositoy;
+package com.example.campushelp.repository;
 
 import com.example.campushelp.domain.TicketComment;
 import org.springframework.data.jpa.repository.JpaRepository;

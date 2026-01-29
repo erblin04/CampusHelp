@@ -1,7 +1,7 @@
 package com.example.campushelp.service;
 
 import com.example.campushelp.domain.User;
-import com.example.campushelp.repositoy.UserRepository;
+import com.example.campushelp.repository.UserRepository;
 import com.example.campushelp.web.dto.CreateUserRequest;
 import com.example.campushelp.web.dto.UserResponse;
 import com.example.campushelp.web.exception.BadRequestException;
