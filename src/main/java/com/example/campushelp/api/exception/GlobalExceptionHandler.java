@@ -1,4 +1,4 @@
-package com.example.campushelp.web.exception;
+package com.example.campushelp.api.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

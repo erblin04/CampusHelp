@@ -6,10 +6,10 @@ import com.example.campushelp.domain.User;
 import com.example.campushelp.domain.enums.TicketStatus;
 import com.example.campushelp.repository.TicketRepository;
 import com.example.campushelp.repository.TicketStatusHistoryRepository;
-import com.example.campushelp.web.dto.ChangeStatusRequest;
-import com.example.campushelp.web.dto.StatusHistoryResponse;
-import com.example.campushelp.web.dto.TicketResponse;
-import com.example.campushelp.web.exception.NotFoundException;
+import com.example.campushelp.api.dto.ChangeStatusRequest;
+import com.example.campushelp.api.dto.StatusHistoryResponse;
+import com.example.campushelp.api.dto.TicketResponse;
+import com.example.campushelp.api.exception.NotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

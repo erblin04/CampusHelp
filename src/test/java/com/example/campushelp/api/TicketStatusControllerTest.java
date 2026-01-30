@@ -1,9 +1,9 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
 import com.example.campushelp.service.TicketStatusService;
 import com.example.campushelp.domain.enums.TicketPriority;
 import com.example.campushelp.domain.enums.TicketStatus;
-import com.example.campushelp.web.dto.TicketResponse;
+import com.example.campushelp.api.dto.TicketResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

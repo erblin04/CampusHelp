@@ -7,7 +7,7 @@ import com.example.campushelp.domain.enums.TicketStatus;
 import com.example.campushelp.repository.TicketRepository;
 import com.example.campushelp.repository.TicketStatusHistoryRepository;
 import com.example.campushelp.repository.UserRepository;
-import com.example.campushelp.web.dto.ChangeStatusRequest;
+import com.example.campushelp.api.dto.ChangeStatusRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

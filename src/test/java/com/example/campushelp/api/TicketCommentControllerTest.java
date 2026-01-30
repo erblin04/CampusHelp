@@ -1,7 +1,7 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
 import com.example.campushelp.service.TicketCommentService;
-import com.example.campushelp.web.dto.CommentResponse;
+import com.example.campushelp.api.dto.CommentResponse;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

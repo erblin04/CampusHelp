@@ -1,9 +1,9 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
 import com.example.campushelp.service.TicketStatusService;
-import com.example.campushelp.web.dto.ChangeStatusRequest;
-import com.example.campushelp.web.dto.StatusHistoryResponse;
-import com.example.campushelp.web.dto.TicketResponse;
+import com.example.campushelp.api.dto.ChangeStatusRequest;
+import com.example.campushelp.api.dto.StatusHistoryResponse;
+import com.example.campushelp.api.dto.TicketResponse;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,11 +1,12 @@
 package com.example.campushelp.service;
 
+import com.example.campushelp.api.dto.UpdateTicketRequest;
 import com.example.campushelp.domain.Ticket;
 import com.example.campushelp.domain.User;
 import com.example.campushelp.repository.TicketRepository;
-import com.example.campushelp.web.dto.CreateTicketRequest;
-import com.example.campushelp.web.dto.TicketResponse;
-import com.example.campushelp.web.exception.NotFoundException;
+import com.example.campushelp.api.dto.CreateTicketRequest;
+import com.example.campushelp.api.dto.TicketResponse;
+import com.example.campushelp.api.exception.NotFoundException;
 import org.springframework.stereotype.Service;
 import com.example.campushelp.domain.enums.TicketPriority;
 import com.example.campushelp.domain.enums.TicketStatus;
@@ -107,4 +108,24 @@ public class TicketService {
         return ticketRepository.findAll(spec, pageable).map(this::toResponse);
     }
 
+    public void delete(Long id) {
+        if (!ticketRepository.existsById(id)) {
+            throw new NotFoundException("Ticket not found: " + id);
+        }
+        ticketRepository.deleteById(id);
+    }
+
+
+    public TicketResponse update(Long id, UpdateTicketRequest req) {
+        Ticket ticket = ticketRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Ticket not found: " + id));
+
+        ticket.setTitle(req.getTitle());
+        ticket.setDescription(req.getDescription());
+        ticket.setCategory(req.getCategory());
+        ticket.setPriority(req.getPriority());
+
+        Ticket saved = ticketRepository.save(ticket);
+        return toResponse(saved);
+    }
 }

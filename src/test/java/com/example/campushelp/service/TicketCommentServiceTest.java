@@ -5,7 +5,7 @@ import com.example.campushelp.domain.User;
 import com.example.campushelp.domain.enums.TicketPriority;
 import com.example.campushelp.repository.TicketRepository;
 import com.example.campushelp.repository.UserRepository;
-import com.example.campushelp.web.dto.AddCommentRequest;
+import com.example.campushelp.api.dto.AddCommentRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

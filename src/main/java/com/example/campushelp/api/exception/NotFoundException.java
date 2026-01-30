@@ -1,4 +1,4 @@
-package com.example.campushelp.web.exception;
+package com.example.campushelp.api.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
