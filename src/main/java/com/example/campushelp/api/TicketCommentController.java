@@ -29,4 +29,12 @@ public class TicketCommentController  {
     public List<CommentResponse> list(@PathVariable Long id) {
         return ticketCommentService.list(id);
     }
+
+    @DeleteMapping("/{ticketId}/comments/{commentId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long ticketId, @PathVariable Long commentId) {
+        ticketCommentService.delete(ticketId, commentId);
+    }
+
+
 }

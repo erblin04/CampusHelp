@@ -8,6 +8,7 @@ import com.example.campushelp.repository.TicketRepository;
 import com.example.campushelp.api.dto.AddCommentRequest;
 import com.example.campushelp.api.dto.CommentResponse;
 import com.example.campushelp.api.exception.NotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,5 +64,14 @@ public class TicketCommentService {
                 c.isInternal(),
                 c.getCreatedAt()
         );
+    }
+
+    @Transactional
+    public void delete(Long ticketId, Long commentId) {
+        boolean exists = commentRepository.existsByIdAndTicketId(commentId, ticketId);
+        if (!exists) {
+            throw new NotFoundException("Comment " + commentId + " not found for ticket " + ticketId);
+        }
+        commentRepository.deleteByIdAndTicketId(commentId, ticketId);
     }
 }
