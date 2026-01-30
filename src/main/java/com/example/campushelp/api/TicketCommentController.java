@@ -1,8 +1,8 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
 import com.example.campushelp.service.TicketCommentService;
-import com.example.campushelp.web.dto.AddCommentRequest;
-import com.example.campushelp.web.dto.CommentResponse;
+import com.example.campushelp.api.dto.AddCommentRequest;
+import com.example.campushelp.api.dto.CommentResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/tickets")
-public class TicketCommentController {
+public class TicketCommentController  {
 
     private final TicketCommentService ticketCommentService;
 

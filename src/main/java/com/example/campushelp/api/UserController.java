@@ -1,8 +1,8 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
 import com.example.campushelp.service.UserService;
-import com.example.campushelp.web.dto.CreateUserRequest;
-import com.example.campushelp.web.dto.UserResponse;
+import com.example.campushelp.api.dto.CreateUserRequest;
+import com.example.campushelp.api.dto.UserResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

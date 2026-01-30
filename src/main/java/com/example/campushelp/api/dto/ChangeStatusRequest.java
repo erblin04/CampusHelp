@@ -1,4 +1,4 @@
-package com.example.campushelp.web.dto;
+package com.example.campushelp.api.dto;
 
 import com.example.campushelp.domain.enums.TicketStatus;
 import jakarta.validation.constraints.NotNull;

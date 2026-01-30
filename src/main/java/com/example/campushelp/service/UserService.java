@@ -2,11 +2,13 @@ package com.example.campushelp.service;
 
 import com.example.campushelp.domain.User;
 import com.example.campushelp.repository.UserRepository;
-import com.example.campushelp.web.dto.CreateUserRequest;
-import com.example.campushelp.web.dto.UserResponse;
-import com.example.campushelp.web.exception.BadRequestException;
-import com.example.campushelp.web.exception.NotFoundException;
+import com.example.campushelp.api.dto.CreateUserRequest;
+import com.example.campushelp.api.dto.UserResponse;
+import com.example.campushelp.api.exception.BadRequestException;
+import com.example.campushelp.api.exception.NotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 @Service
 public class UserService {
@@ -16,6 +18,7 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UserResponse create(CreateUserRequest req) {
         if (userRepository.existsByEmail(req.getEmail())) {
@@ -25,7 +28,8 @@ public class UserService {
         User user = new User();
         user.setEmail(req.getEmail());
         user.setFullName(req.getFullName());
-        user.setPasswordHash("{noop}" + req.getPassword());
+//        user.setPasswordHash("{noop}" + req.getPassword());
+        user.setPasswordHash(passwordEncoder.encode(req.getPassword()));
 
         User saved = userRepository.save(user);
 

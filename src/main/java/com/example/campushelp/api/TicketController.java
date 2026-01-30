@@ -1,17 +1,12 @@
-package com.example.campushelp.web;
+package com.example.campushelp.api;
 
+import com.example.campushelp.api.dto.UpdateTicketRequest;
 import com.example.campushelp.service.TicketService;
-import com.example.campushelp.web.dto.CreateTicketRequest;
-import com.example.campushelp.web.dto.TicketResponse;
+import com.example.campushelp.api.dto.CreateTicketRequest;
+import com.example.campushelp.api.dto.TicketResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.example.campushelp.domain.enums.TicketPriority;
-import com.example.campushelp.domain.enums.TicketStatus;
-import org.springframework.data.domain.Page;
-
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/tickets")
@@ -53,5 +48,17 @@ public class TicketController {
     @GetMapping("/{id}")
     public TicketResponse getById(@PathVariable Long id) {
         return ticketService.getById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id) {
+        ticketService.delete(id);
+    }
+
+    @PutMapping("/{id}")
+    public TicketResponse update(@PathVariable Long id,
+                                 @RequestBody UpdateTicketRequest req) {
+        return ticketService.update(id, req);
     }
 }
